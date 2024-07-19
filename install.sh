@@ -220,8 +220,6 @@ clone_anythingllm(){
     git clone https://github.com/TommySinPolyU/anything-llm.git
     cd anything-llm
     yarn setup
-    mkdir ./storage
-    chmod ./storage 777
 }
 copy_envfiles(){
      cp server/.env.example server/.env
