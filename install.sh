@@ -316,7 +316,7 @@ install_colab() {
     check_requirment_anythingllm > /dev/null 2>&1
     #echo "Cloning the Ollama Companion repository..."
     #clone_ollama_companion > /dev/null 2>&1
-    echo "Cloning the Anything-LLM repository..."
+    echo "Cloning and Initializing the Anything-LLM repository..."
     clone_anythingllm
     echo "Cloned the Anything-LLM repository..."
     echo "Copying environment files..."
