@@ -219,6 +219,7 @@ interactive_check_python() {
 clone_anythingllm(){
     git clone https://github.com/TommySinPolyU/anything-llm.git
     cd anything-llm
+    yarn setup
     mkdir ./storage
     chmod ./storage 777
 }
@@ -240,8 +241,8 @@ start_anythingllm(){
     # Run Server and Collector in the background
     cd server && NODE_ENV=production node index.js &
     cd collector && NODE_ENV=production node index.js &
-    echo "Anything-LLM is running on http://localhost:3001"
 }
+    
 
 
 write_to_log() {
@@ -328,7 +329,7 @@ install_colab() {
     echo "Migrated the Anything-LLM repository..."
     echo "Starting Anything-LLM..."
     start_anythingllm > /dev/null 2>&1
-    echo "Anything-LLM Started"
+    echo "Anything-LLM is running on http://localhost:3001"
     echo "Installing Python dependencies..."
     pip_dependencies > /dev/null 2>&1
     echo "Installing the HTTPX Python package..."
