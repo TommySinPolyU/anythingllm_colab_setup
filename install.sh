@@ -468,6 +468,8 @@ main() {
     if [[ $install_ollama_flag -eq 1 ]]; then
         echo "Installing Ollama..."
         install_ollama_headless
+        echo "Stating Ollama"
+        run_ollama_backend
     fi
 
     # Run start script if the block flag is not set
