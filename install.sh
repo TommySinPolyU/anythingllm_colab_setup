@@ -234,7 +234,9 @@ migrate_database(){
 # function for running the Anything LLM frontend, server and collection
 start_anythingllm(){
     # Build and Run the frontend UI
+    cd ../
     cd frontend && yarn build
+    cd ../
     cp -R frontend/dist server/public
     # Run Server and Collector in the background
     cd server && NODE_ENV=production node index.js &
@@ -315,15 +317,13 @@ install_colab() {
     #echo "Cloning the Ollama Companion repository..."
     #clone_ollama_companion > /dev/null 2>&1
     echo "Cloning and Initializing the Anything-LLM repository..."
-    clone_anythingllm
+    clone_anythingllm > /dev/null 2>&1
     echo "Cloned the Anything-LLM repository..."
     echo "Copying environment files..."
     copy_envfiles > /dev/null 2>&1
     echo "Copied environment files..."
     echo "Migrating and preparing database file"
-    cd server && npx prisma generate --schema=./prisma/schema.prisma
-    cd ../
-    cd server && npx prisma migrate deploy --schema=./prisma/schema.prisma
+    migrate_database > /dev/null 2>&1
     echo "Migrated the Anything-LLM repository..."
     echo "Starting Anything-LLM..."
     start_anythingllm
