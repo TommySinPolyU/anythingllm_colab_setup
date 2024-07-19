@@ -317,7 +317,7 @@ install_colab() {
     #echo "Cloning the Ollama Companion repository..."
     #clone_ollama_companion > /dev/null 2>&1
     echo "Cloning the Anything-LLM repository..."
-    clone_anythingllm > /dev/null 2>&1
+    clone_anythingllm
     echo "Cloned the Anything-LLM repository..."
     echo "Copying environment files..."
     copy_envfiles > /dev/null 2>&1
@@ -328,7 +328,7 @@ install_colab() {
     cd server && npx prisma migrate deploy --schema=./prisma/schema.prisma
     echo "Migrated the Anything-LLM repository..."
     echo "Starting Anything-LLM..."
-    start_anythingllm > /dev/null 2>&1
+    start_anythingllm
     echo "Anything-LLM is running on http://localhost:3001"
     echo "Installing Python dependencies..."
     pip_dependencies > /dev/null 2>&1
