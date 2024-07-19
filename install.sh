@@ -322,7 +322,9 @@ install_colab() {
     copy_envfiles > /dev/null 2>&1
     echo "Copied environment files..."
     echo "Migrating and preparing database file"
-    migrate_database > /dev/null 2>&1
+    cd server && npx prisma generate --schema=./prisma/schema.prisma
+    cd ../
+    cd server && npx prisma migrate deploy --schema=./prisma/schema.prisma
     echo "Migrated the Anything-LLM repository..."
     echo "Starting Anything-LLM..."
     start_anythingllm > /dev/null 2>&1
