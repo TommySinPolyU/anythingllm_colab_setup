@@ -176,6 +176,12 @@ install_ollama_headless(){
     echo "Ollama Installed"
 }
 
+# Run Ollama at backend
+run_ollama_backend(){
+    echo "Starting Ollama Backend"
+    OLLAMA_ORIGINS=* OLLAMA_HOST=0.0.0.0 ollama serve
+}
+
 
 clean_build_llama_cpp() {
     echo "Do you want to clean build llama.cpp? (yes/no)"
