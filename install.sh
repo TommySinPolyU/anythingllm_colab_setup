@@ -260,7 +260,7 @@ run_start_script(){
 
 # END message when the installation is completed
 
-END_MESSAGE="Companion successfully installed, you can launch next time with the start.sh script. Ollama-companion will autolaunch on port 8051 and defaults to making a public-facing URL for your companion. If you only want to run Ollama-companion locally: run the start.sh script with '-local' or '-lan' arguments."
+END_MESSAGE="Successfully installed"
 
 
 ## Installation types
