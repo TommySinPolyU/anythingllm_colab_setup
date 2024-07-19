@@ -214,26 +214,21 @@ interactive_check_python() {
     fi
 }
 
-# Function for install the Anything LLM
-install_anythingllm() {
-    current_dir=$(basename "$PWD")
-    if [ "$current_dir" != "anything-llm" ]; then
-        git clone https://github.com/TommySinPolyU/anything-llm.git
-        cd anything-llm
-        echo "Cloned AnythingLLM and changed directory to anything-llm"
-        mkdir ./storage
-        chmod ./storage 777
-        cp server/.env.example server/.env
-        echo "Copied Server Environment File"
-        cp frontend/.env.example frontend/.env
-        echo "Copied Frontend Environment File"
-        echo "Migrating and preparing database file"
-        cd server && npx prisma generate --schema=./prisma/schema.prisma
-        cd ../
-        cd server && npx prisma migrate deploy --schema=./prisma/schema.prisma
-    else
-        echo "Already inside ollama-companion directory, skipping clone."
-    fi
+# Functions for install the Anything LLM
+clone_anythingllm(){
+    git clone https://github.com/TommySinPolyU/anything-llm.git
+    cd anything-llm
+    mkdir ./storage
+    chmod ./storage 777
+}
+copy_envfiles(){
+     cp server/.env.example server/.env
+     cp frontend/.env.example frontend/.env
+}
+migrate_database(){
+    cd server && npx prisma generate --schema=./prisma/schema.prisma
+    cd ../
+    cd server && npx prisma migrate deploy --schema=./prisma/schema.prisma
 }
 
 # function for running the Anything LLM frontend, server and collection
@@ -319,10 +314,18 @@ install_colab() {
     check_requirment_anythingllm > /dev/null 2>&1
     #echo "Cloning the Ollama Companion repository..."
     #clone_ollama_companion > /dev/null 2>&1
-    echo "Cloning the Anything-LLM repository and setup the environment..."
-    install_anythingllm > /dev/null 2>&1
+    echo "Cloning the Anything-LLM repository..."
+    clone_anythingllm > /dev/null 2>&1
+    echo "Cloned the Anything-LLM repository..."
+    echo "Copying environment files..."
+    copy_envfiles > /dev/null 2>&1
+    echo "Copied environment files..."
+    echo "Migrating and preparing database file"
+    migrate_database > /dev/null 2>&1
+    echo "Migrated the Anything-LLM repository..."
     echo "Starting Anything-LLM..."
     start_anythingllm > /dev/null 2>&1
+    echo "Anything-LLM Started"
     echo "Installing Python dependencies..."
     pip_dependencies > /dev/null 2>&1
     echo "Installing the HTTPX Python package..."
