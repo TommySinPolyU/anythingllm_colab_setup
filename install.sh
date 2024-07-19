@@ -460,9 +460,9 @@ main() {
     fi
 
     # Run start script if the block flag is not set
-    if [[ $block_start_script_flag -eq 0 ]]; then
-        #run_start_script
-    fi
+    #if [[ $block_start_script_flag -eq 0 ]]; then
+    #    run_start_script
+    #fi
 }
 
 # Call the main function with all passed arguments
