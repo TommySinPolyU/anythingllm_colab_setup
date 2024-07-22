@@ -353,7 +353,8 @@ install_colab() {
     echo "Installing Ollama in headless mode..."
     install_ollama_headless > /dev/null 2>&1
     echo "Stating Ollama"
-    run_ollama_backend > /dev/null 2>&1
+    run_ollama_backend
+    sleep 5
     echo "Downloading required models"
     download_required_models
     echo "Logging installation type..."
