@@ -350,12 +350,12 @@ install_colab() {
     #wget https://huggingface.co/luxadev/llama.cpp_binaries/resolve/main/llama.cpp_latest.tar.gz -O /tmp/llama.cpp_latest.tar.gz > /dev/null 2>&1
     #echo "Extracting the downloaded binaries..."
     #tar -xzvf /tmp/llama.cpp_latest.tar.gz -C /content/Ollama-Companion/ > /dev/null 2>&1
-    echo "Installing Ollama in headless mode..."
-    install_ollama_headless > /dev/null 2>&1
-    echo "Stating Ollama"
-    run_ollama_backend
-    sleep 5
-    echo "Downloading required models"
+    #echo "Installing Ollama in headless mode..."
+    #install_ollama_headless > /dev/null 2>&1
+    #echo "Stating Ollama"
+    #run_ollama_backend
+    #sleep 5
+    #echo "Downloading required models"
     download_required_models
     echo "Logging installation type..."
     #write_to_log "colab"
