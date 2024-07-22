@@ -352,8 +352,12 @@ install_colab() {
     #tar -xzvf /tmp/llama.cpp_latest.tar.gz -C /content/Ollama-Companion/ > /dev/null 2>&1
     echo "Installing Ollama in headless mode..."
     install_ollama_headless > /dev/null 2>&1
+    echo "Stating Ollama"
+    run_ollama_backend > /dev/null 2>&1
+    echo "Downloading required models"
+    download_required_models
     echo "Logging installation type..."
-    write_to_log "colab"
+    #write_to_log "colab"
     echo "$END_MESSAGE"
 }
 
@@ -476,10 +480,12 @@ main() {
     if [[ $install_ollama_flag -eq 1 ]]; then
         echo "Installing Ollama..."
         install_ollama_headless
-        echo "Stating Ollama"
-        run_ollama_backend
-        echo "Downloading required models"
-        download_required_models
+        
+        #echo "Stating Ollama"
+        #run_ollama_backend
+        #echo "Downloading required models"
+        #download_required_models
+        
     fi
 
     # Run start script if the block flag is not set
