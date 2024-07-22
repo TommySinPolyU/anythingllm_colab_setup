@@ -187,7 +187,7 @@ download_required_models(){
     #ollama pull rjmalagon/gte-qwen2-7b-instruct-embed-f16
     #ollama pull quentinz/bge-large-zh-v1.5
     #ollama pull pokmon/llama3-8b-chinese
-    #ollama pull qwen2
+    ollama pull qwen2
 }
 
 
