@@ -182,6 +182,11 @@ run_ollama_backend(){
     OLLAMA_ORIGINS=* OLLAMA_HOST=0.0.0.0 ollama serve
 }
 
+download_required_models(){
+    ollama pull shaw/dmeta-embedding-zh
+    ollama pull qwen2
+}
+
 
 clean_build_llama_cpp() {
     echo "Do you want to clean build llama.cpp? (yes/no)"
@@ -470,6 +475,8 @@ main() {
         install_ollama_headless
         echo "Stating Ollama"
         run_ollama_backend
+        echo "Downloading required models"
+        download_required_models
     fi
 
     # Run start script if the block flag is not set
