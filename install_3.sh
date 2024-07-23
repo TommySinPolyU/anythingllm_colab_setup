@@ -179,7 +179,7 @@ install_ollama_headless(){
 # Run Ollama at backend
 run_ollama_backend(){
     echo "Starting Ollama Backend"
-    OLLAMA_ORIGINS=* OLLAMA_HOST=0.0.0.0 ollama serve &
+    OLLAMA_ORIGINS=https://chatdemo.citrusinno.com OLLAMA_HOST=0.0.0.0 ollama serve &
 }
 
 download_required_models(){
