@@ -184,11 +184,11 @@ run_ollama_backend(){
 
 download_required_models(){
     #ollama pull shaw/dmeta-embedding-zh
-    ollama pull rjmalagon/gte-qwen2-7b-instruct-embed-f16
+    #ollama pull rjmalagon/gte-qwen2-7b-instruct-embed-f16
     ollama pull quentinz/bge-large-zh-v1.5
     #ollama pull pokmon/llama3-8b-chinese
     #ollama pull qwen2
-	ollama pull qwen:7b
+	ollama pull qwen:1.8b
 }
 
 
