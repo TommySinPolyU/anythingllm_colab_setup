@@ -188,7 +188,7 @@ download_required_models(){
     #ollama pull quentinz/bge-large-zh-v1.5
     #ollama pull pokmon/llama3-8b-chinese
     #ollama pull qwen2
-	ollama pull qwen:1.8b
+	ollama pull qwen:0.5b
 }
 
 
