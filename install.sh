@@ -188,6 +188,7 @@ download_required_models(){
     ollama pull quentinz/bge-large-zh-v1.5
     #ollama pull pokmon/llama3-8b-chinese
     ollama pull qwen2
+    ollama pull llama3.1:8b
     ollama pull wangshenzhi/llama3-8b-chinese-chat-ollama-q8
 }
 
