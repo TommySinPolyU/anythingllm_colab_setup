@@ -353,9 +353,9 @@ install_colab() {
     #echo "Extracting the downloaded binaries..."
     #tar -xzvf /tmp/llama.cpp_latest.tar.gz -C /content/Ollama-Companion/ > /dev/null 2>&1
     echo "Installing Ollama in headless mode..."
-    install_ollama_headless > /dev/null 2>&1
+    install_ollama_headless
     echo "Stating Ollama"
-    run_ollama_backend
+    run_ollama_backend > /dev/null 2>&1
     sleep 5
     echo "Downloading required models"
     download_required_models
